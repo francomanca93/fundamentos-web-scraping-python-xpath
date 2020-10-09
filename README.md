@@ -20,12 +20,21 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
 ## Tabla de contenido
 - [Fundamentos de Web Scraping con Python y Xpath](#fundamentos-de-web-scraping-con-python-y-xpath)
   - [Introducción al web scraping](#introducción-al-web-scraping)
+    - [¿Qué es el web scraping?](#qué-es-el-web-scraping)
   - [Fundamentos de la web](#fundamentos-de-la-web)
   - [XML Path Language](#xml-path-language)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
 ## Introducción al web scraping
+
+### ¿Qué es el web scraping?
+
+![web_scrapping](https://imgur.com/A2tL463.png)
+
+**[Web scraping](https://es.wikipedia.org/wiki/Web_scraping)** es una técnica usada por data scientists y backend developers para extraer información de internet, accede a esto usando el protocolo de tranferencias de hipertexto (HTTP) o a través de un navegador. Los datos extraídos usualmente son guardados en una base de datos, incluso en una hoja de cálculo para posteriores análisis. Puede hacerse de manera automática (bot) o manualmente.
+
+**[Xpath](https://es.wikipedia.org/wiki/XPath)** es un lenguaje que sirve para apuntar a las partes de un documento XML. Xpath modela un documento XML como un árbol de nodos. Existen diferentes tipos de nodos: elementos, atributos, texto.
 
 ## Fundamentos de la web
 
