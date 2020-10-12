@@ -31,6 +31,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [¿Qué es HTML?](#qué-es-html)
     - [Robots.txt: permisos y consideraciones al hacer web scraping](#robotstxt-permisos-y-consideraciones-al-hacer-web-scraping)
   - [XML Path Language](#xml-path-language)
+    - [XML Path Language, ¿Que es?](#xml-path-language-que-es)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -239,3 +240,13 @@ Se analizo el archivo **robots.txt**, el cual define las reglas para poder extra
 Sabiendo lo anterior veremos Xpath, XML Path Language.
 
 ## XML Path Language
+
+### XML Path Language, ¿Que es?
+
+**[XML, Xtensible markup lenguage](https://es.wikipedia.org/wiki/Extensible_Markup_Language)**. Sirvio para definir interfaces, es un lenguaje de nodos o etiquetas.
+
+Una técnica para extraer datos de allí es **[Xpath](https://es.wikipedia.org/wiki/XPath)**.
+
+Xpath es a HTML lo que las REGEX son a un texto.
+
+Es decir, Xpath es un lenguaje de patrones, expresiones que nos permitirá extraer datos de un HTML, ya que HTML y XML son muy parecidos. Puntualmente sirve para apuntar a partes de un documento XML.
