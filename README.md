@@ -224,4 +224,18 @@ Disallow: /offices/oce/llis/
 ---------------
 Para conocer más información de [robots.txt](https://ahrefs.com/blog/es/robots-txt/).
 
+-------
+
+Resumen de la sección anterior para introducirnos en la siguiente:
+
+Se aprendio como esta conformada la estructura de un sitio web.
+
+Sabemos que es HTTP, el protocolo de transferencia de hipertexto, el cual nos permite comunicar un cliente y un servidor en la red. En esta comunicación el servidor nos envia un documento de tipo HTML.
+
+En este documento se define la estructura de un sitio web. Sabemos como esta conformada esta estructura y como contruir una.  
+
+Se analizo el archivo **robots.txt**, el cual define las reglas para poder extrar información o no, dependiendo sea el caso, de un sitio web.
+
+Sabiendo lo anterior veremos Xpath, XML Path Language.
+
 ## XML Path Language
