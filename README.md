@@ -29,6 +29,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
   - [Fundamentos de la web](#fundamentos-de-la-web)
     - [Entender HTTP](#entender-http)
     - [¿Qué es HTML?](#qué-es-html)
+    - [Robots.txt: permisos y consideraciones al hacer web scraping](#robotstxt-permisos-y-consideraciones-al-hacer-web-scraping)
   - [XML Path Language](#xml-path-language)
 
 # Fundamentos de Web Scraping con Python y Xpath
@@ -186,5 +187,41 @@ La siguientes etiquetas son importantes para el web scraping y por ende se expli
 - **[< script >](https://developer.mozilla.org/es/docs/Web/HTML/Elemento/script)**: Se utiliza para insertar o hacer referencia a un script o código que ejecuta una acción dentro de un docuemnto HTML.
 - **[< meta >](https://es.wikipedia.org/wiki/Etiqueta_meta)**: Los metadatos son atributos que no se muestran en la página web, pero que sirven para identificar cosas como el autor de la página, el lenguaje en que está escrito, palabras clave para que los motores de búsqueda las indexen etc. Aporta información extra al documento. Aunque no son visibles al usuario de un sitio web si se pueden analizar de forma automática por código.
 - **[< iframe >](https://developer.mozilla.org/es/docs/Web/HTML/Elemento/iframe)**: Representa un contexto de navegación anidado, el cual permite incrustrar otra página HTML en la página actual.
+
+### Robots.txt: permisos y consideraciones al hacer web scraping
+
+Los archivos [robots.txt](https://support.google.com/webmasters/answer/6062608?hl=es&ref_topic=6061961) exiten como una forma de administrar una página web. Proporciona información a los rastreadores de los buscadores sobre las páginas o los archivos que pueden solicitar o no de tu sitio web.
+Principalmente, se utiliza para evitar que tu sitio web se sobrecargue con solicitudes.
+
+En el contexto de webscraping, le dice al scraper que puede y no extraer. Es decir hasta donde puede llegar. Ya que infrigir en la violación
+de estas directivas puede acarrear un problema legal con el sitio web al que estamos scrapeando.
+
+**robots.txt** Contiene entre otros elementos:
+
+**USER-AGENT**: Identificadores de quienes acceden a tu sitio web, puede ser un `archivo.py` hasta un googlebot.
+
+**DIRECTIVAS**
+
+- **ALLOW**: Utiliza esta directiva para permitir a los motores de búsqueda rastrear un subdirectorio o una página, incluso en un directorio que de otro modo no estaría permitido.
+- **DISALLOW**: Utiliza esta directiva para indicar a los motores de búsqueda que no accedan a archivos y páginas que se encuentren bajo una ruta específica.
+
+--------------
+Ejemplo:
+
+```shell
+url/robots.txt
+Por ejemplo:
+
+# Robots.txt file from http://www.nasa.gov
+#
+# All robots will spider the domain
+
+User-agent: *
+Disallow: /worldbook/
+Disallow: /offices/oce/llis/
+
+```
+---------------
+Para conocer más información de [robots.txt](https://ahrefs.com/blog/es/robots-txt/).
 
 ## XML Path Language
