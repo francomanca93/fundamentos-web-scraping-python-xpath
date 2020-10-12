@@ -27,6 +27,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
       - [Herramientas de web scrapping](#herramientas-de-web-scrapping)
       - [Otras librerais y otros lenguajes](#otras-librerais-y-otros-lenguajes)
   - [Fundamentos de la web](#fundamentos-de-la-web)
+    - [Entender HTTP](#entender-http)
   - [XML Path Language](#xml-path-language)
 
 # Fundamentos de Web Scraping con Python y Xpath
@@ -85,7 +86,90 @@ Enfocados ecomerce o a funciones como tomar screenshots de PDFs. Automatizar y a
 
 - [Puppeteer](https://pptr.dev/) Es una librería de Js que puede usarse para diferentes propósitos entre los cuales el webscrapping es uno.
 
-
 ## Fundamentos de la web
+
+### Entender HTTP
+
+[El protocolo HTTP](https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_hipertexto) es conjunto de reglas por el cual dos computadoras se comunican. Un cliente y un servidor. El cliente realiza peticiones a servidores.
+
+Una petición se vería de la siguiente manera:
+
+```shell
+# Request
+GET / HTTP/1.1
+Host: developer.mozilla.org  Accept-Language: fr
+
+# Response  
+HTTP/1.1 200 OK
+Date: Sat, 09 Oct 2010 14:28:02 GMT
+Server: Apache
+Last-Modified: Tue, 01 Dec 2009 20:18:22 GMT  ETag: "51142bc1-7449-479b075b2891b"
+Accept-Ranges: bytes  Content-Length: 29769  Content-Type: text/html
+<!DOCTYPE html... (here comes the 29769 bytes of the  requested web page)
+```
+
+**HEADERS**
+
+Permiten al cliente y el servidor passar información adicional con un request o response HTTP.
+
+Pueden agruparse en las siguientes categorías:
+
+- **Generales** : Aplica para request y responses pero no tiene relación con la data transmitida en el cuerpo
+- **Request** : Contienen más información acerca del recurso a ser fetch (extraer)
+- **Response** : Contiene información adicional sobre respuestas. Como ubicación o el Server provider.
+- **Entity** : Contien información acerca del recurso del cuerpo.
+
+Existen muchas cabeceras o headers como:
+
+- **Accept**
+- **Authorization**
+- **Link**
+- **Location**
+- **Save-Data**
+
+Puedes consultar aquí toda la [documentación sobre las cabeceras o Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+
+HTTP nos permite transportar, HTML, CSS, webAPIs, Js. Se vale de protcolos como IP, TCP, UDP para comunicarse con el servidor, mediante TLS se hace la encriptación. Y el DNS asigna nombres a direcciones IP.
+
+![protocolos_web](https://imgur.com/1PgtKGm.png)
+
+**STATUS CODE**:
+
+Los estados son la forma en que el servidor da respuesta de las peticiones.
+
+1. Respuestas informativas (100–199).
+2. Respuestas satisfactorias (200–299).
+3. Redirecciones (300–399).
+4. Errores de los clientes (400–499).
+5. Errores de los servidores (500–599).
+
+[Documentación de Mozilla sobre STATUS CODE](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+**MANEJO DE STATUS CODES**
+
+Una opción rápida para manejar los STATUS CODE es usar la librería **Request**.
+
+1. Abre un ambiente virtual.
+2. En la carpeta de trabajo: `pip install request`
+
+Luego en pyhton:
+
+```py
+
+# Una idea sobre el manejo de los status Code.
+
+import requests
+
+response_platzi = requests.get('https://api.platzi.com')
+print(response_platzi)
+# <Response [404]>
+
+if response_platzi.status_code == 200:
+    print("Aquí tienes lo que buscas")
+elif response_platzi.status_code == 400:
+    print("Ups, no puedo darte nada en el momento. Nosotros nunca paramos de mejorar <3")
+```
+
+Un artículo para profundizar en cómo manejar la librería request y como manejar los status code [Request Tutorial](https://realpython.com/python-requests/#status-codes)
 
 ## XML Path Language
