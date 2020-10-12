@@ -28,6 +28,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
       - [Otras librerais y otros lenguajes](#otras-librerais-y-otros-lenguajes)
   - [Fundamentos de la web](#fundamentos-de-la-web)
     - [Entender HTTP](#entender-http)
+    - [¿Qué es HTML?](#qué-es-html)
   - [XML Path Language](#xml-path-language)
 
 # Fundamentos de Web Scraping con Python y Xpath
@@ -171,5 +172,19 @@ elif response_platzi.status_code == 400:
 ```
 
 Un artículo para profundizar en cómo manejar la librería request y como manejar los status code [Request Tutorial](https://realpython.com/python-requests/#status-codes)
+
+### ¿Qué es HTML?
+
+[HTML](https://es.wikipedia.org/wiki/HTML) es una lenguaje que permite definir la estructura de una página web. Estrucutra, estilo, partes interactivas. En el contexto de webscraping HTML es muy importante.
+
+**Etiquetas** está encerrado en angle brakets **< >**. Una etiqueta puede contener a otras etiquetas, las etiquetas tienen **atributos**.
+
+El conocimiento de los **atributos** es crucial porque con ellos podremos conectar el scraper para extraer información.
+
+La siguientes etiquetas son importantes para el web scraping y por ende se explican:
+
+- **[< script >](https://developer.mozilla.org/es/docs/Web/HTML/Elemento/script)**: Se utiliza para insertar o hacer referencia a un script o código que ejecuta una acción dentro de un docuemnto HTML.
+- **[< meta >](https://es.wikipedia.org/wiki/Etiqueta_meta)**: Los metadatos son atributos que no se muestran en la página web, pero que sirven para identificar cosas como el autor de la página, el lenguaje en que está escrito, palabras clave para que los motores de búsqueda las indexen etc. Aporta información extra al documento. Aunque no son visibles al usuario de un sitio web si se pueden analizar de forma automática por código.
+- **[< iframe >](https://developer.mozilla.org/es/docs/Web/HTML/Elemento/iframe)**: Representa un contexto de navegación anidado, el cual permite incrustrar otra página HTML en la página actual.
 
 ## XML Path Language
