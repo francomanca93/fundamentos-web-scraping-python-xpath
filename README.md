@@ -32,6 +32,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [Robots.txt: permisos y consideraciones al hacer web scraping](#robotstxt-permisos-y-consideraciones-al-hacer-web-scraping)
   - [XML Path Language](#xml-path-language)
     - [XML Path Language, ¿Que es?](#xml-path-language-que-es)
+    - [Tipos de nodos en XPath](#tipos-de-nodos-en-xpath)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -250,3 +251,15 @@ Una técnica para extraer datos de allí es **[Xpath](https://es.wikipedia.org/w
 Xpath es a HTML lo que las REGEX son a un texto.
 
 Es decir, Xpath es un lenguaje de patrones, expresiones que nos permitirá extraer datos de un HTML, ya que HTML y XML son muy parecidos. Puntualmente sirve para apuntar a partes de un documento XML.
+
+### Tipos de nodos en XPath
+
+Un nodo es lo mismo que la etiqueta y su contenido. Cuando hablemos de nodos nos estaremos refiriendo a una etiqueta HTML y todo lo que contiene dentro de si misma. Un nodo puede contener a otros nodos.
+
+En otras palabras Xpath es un lenguaje que nos permitirá movernos entre nodos y navegar en los diferentes niveles de profundidad deseados con el fin extraer información. Para describir los nodos y relaciones con Xpath se usan una sintaxis de ejes.
+
+[Toscrape](http://toscrape.com/) es un sandbox para practicar scraping.
+
+El siguiente esquema es un arbol de nodos con el que se trabajará para hacer scraping del sandbox toscrape.
+
+![arbol_de_nodos](https://imgur.com/TSIFWUJ.png)
