@@ -33,6 +33,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
   - [XML Path Language](#xml-path-language)
     - [XML Path Language, ¿Que es?](#xml-path-language-que-es)
     - [Tipos de nodos en XPath](#tipos-de-nodos-en-xpath)
+    - [Expresiones en XPath](#expresiones-en-xpath)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -263,3 +264,29 @@ En otras palabras Xpath es un lenguaje que nos permitirá movernos entre nodos y
 El siguiente esquema es un arbol de nodos con el que se trabajará para hacer scraping del sandbox toscrape.
 
 ![arbol_de_nodos](https://imgur.com/TSIFWUJ.png)
+
+### Expresiones en XPath
+
+Para escribir expresiones se usara lo siguiente `$x('')`. Entre las comillas se van a escribir las expresiones, las expresiones tienen diferentes símbolos que tienen una utilidad.
+
+- `/` hace referencia a la raíz, o tambien significa un salto entre nodos. e.g `$x(/html/body')` Muestra todo lo que hay dentro del body de html.
+- `//` Sirve para acceder a todos los nodos con la etiqueta seleccionada. e.g `$x(//span)` muestra todas las etiquetas span.
+
+```js
+//Fuente de trabajo Quotes to Scrape:
+
+url ="http://quotes.toscrape.com/"
+
+//Voy a la consola de modzilla y hago lo siguiente.
+
+//Quiero extraer el texto de mi nodo h1.
+
+$x('//h1/a/text()').map(x => x.wholeText)
+//Devuelve en consola: ["Quotes to Scrape"]
+//La función map pertenece a Js y la estoy usando
+//para que me muestre todo el texto de la selección de Xpath.
+```
+
+- `..` Sirve para acceder a los nodos padre de la etiqueta tag. e.g `$x(//span/..)` accede a todos los nodos padre de span.
+- `.` Hace referencia al nodo actual. e.g. `$x(//span/.)` es equivalent a `$x(//span`.
+- `@` Sirve para traer los atributos. e.g `$x(//span/@class` . Estoy trayendo todos los atributos class de los nodos span.
