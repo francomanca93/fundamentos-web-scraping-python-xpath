@@ -34,6 +34,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [XML Path Language, ¿Que es?](#xml-path-language-que-es)
     - [Tipos de nodos en XPath](#tipos-de-nodos-en-xpath)
     - [Expresiones en XPath](#expresiones-en-xpath)
+    - [Predicados en Xpath](#predicados-en-xpath)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -290,3 +291,15 @@ $x('//h1/a/text()').map(x => x.wholeText)
 - `..` Sirve para acceder a los nodos padre de la etiqueta tag. e.g `$x(//span/..)` accede a todos los nodos padre de span.
 - `.` Hace referencia al nodo actual. e.g. `$x(//span/.)` es equivalent a `$x(//span`.
 - `@` Sirve para traer los atributos. e.g `$x(//span/@class` . Estoy trayendo todos los atributos class de los nodos span.
+
+### Predicados en Xpath
+
+Cuando necesitamos un numero especifico dentro ese numero de nodos podemos utilizar `[ ]` como si fuera una lista, entonce llamamos el numero en el que esta ordenado esa etiqueta.
+
+- `$x('/html/body/div/div[1]')` nos devolveria el div `[1]` dentro de la anterior busqueda.
+- `$x('/html/body/div/div[last()]')` podemos pedir el ultimo con las sentencia last.
+- `$x('//span[@class]')` aqui solicitamos todos lo span que tengan al menos un elemento de tipo class.
+- `$x('//span[@class="text"]')` pedimos una clase determinada, en este ejemplo solo pedimos la clase text.
+
+Ejemplo de los anterior en la siguiente imagen:
+![ejemplo_predicados](https://imgur.com/qV6yTvb.png)
