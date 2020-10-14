@@ -36,6 +36,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [Expresiones en XPath](#expresiones-en-xpath)
     - [Predicados en Xpath](#predicados-en-xpath)
     - [Operadores en Xpath](#operadores-en-xpath)
+    - [Wildcards en Xpath](#wildcards-en-xpath)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -340,3 +341,24 @@ $x('//span[@class="text" or @class="tag-item"]')
 ```js
 $x('//span[not(@class)]')
 ```
+
+### Wildcards en Xpath
+
+Son comodines que usamos cuando no tenemos claro lo que queremos extraer.
+
+- `/*` : Con asterisco le estoy diciendo que me traiga todos los nodos inmediatamente después de la expresión.
+- `//*` : En este caso le estoy diciendo que estoy saltando en todos los niveles en todas las direcciones.
+- `@*`: Traer todos los atributos de todos los nodos
+- `/node()` : Nos trae además de nodos el contenido, difiere de asterisco.
+
+Ejemplos:
+
+- `$x('/')`: Trae todo el documento porque representa la raíz de nuestro el html.
+- `$x('/*')` : * después de / pide que traiga todos los nodos que están debajo de / (* es el primer wildcard).
+- `$x('/html/*')`: Trae todos los nodos que están inmediatamente después de html.
+- `$x('//*')`: // es la expresión para saltar todos los niveles y con el * en todas las direcciones. Trae todos los nodos y todos los atributos de estos nodos.
+- `$x('//span[@class="text]/@*')`: Trae todos los span, que tengan como clase “text”, con @* trae todos los atributos. Dicho de otra forma, trae todos los atributos de todos los nodos de tipo span de clase “text”.
+- `$x('/html/body//div/@*')`: Todos los atributos (usando @*) de todos los div (usando //div) que están después de body.
+- `$x('//span[@class="text" and @itemprop="text"]/node()')`: Trae todos los spam que sean de clase “text” que tengan un atributo @itemprop “text” y de ahí (usando node()) traer todo lo que esté dentro de los spam que cumplen las condiciones.
+
+node() a diferencia de * trae no solamente los nodos, sino también todo el contenido.
