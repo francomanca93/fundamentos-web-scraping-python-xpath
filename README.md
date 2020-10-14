@@ -35,6 +35,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [Tipos de nodos en XPath](#tipos-de-nodos-en-xpath)
     - [Expresiones en XPath](#expresiones-en-xpath)
     - [Predicados en Xpath](#predicados-en-xpath)
+    - [Operadores en Xpath](#operadores-en-xpath)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -303,3 +304,39 @@ Cuando necesitamos un numero especifico dentro ese numero de nodos podemos utili
 
 Ejemplo de los anterior en la siguiente imagen:
 ![ejemplo_predicados](https://imgur.com/qV6yTvb.png)
+
+### Operadores en Xpath
+
+Hay una forma de filtrar más avanzada y es con operadores lógicos.
+
+Operadores lógicos en Xpath :
+Cabe notar que los operadores se usan dentro del predicado.
+
+- `!=`: Operador de diferencia
+- `<>`: Operador de mayor - menor
+- `and`: Operador y
+- `or`: Opeador o
+- `not`: Operador negación
+
+Ejemplo:
+
+- Usando el operador != diferente, le estoy diciendo que me traiga todos los nodos span que tienen clase diferente a Texto.
+
+```js
+$x('//span[@class!="text"]')
+```
+
+- Utilizando operadores and y or
+Que nos traiga todos los nodos span que tienen la clase 'text' y 'tag-item'.
+
+```js
+$x('//span[@class="text" and @class="tag-item"]')
+
+$x('//span[@class="text" or @class="tag-item"]')
+```
+
+- Usando operador not me devuelve todos los nodos que no tienen el atributo class.
+
+```js
+$x('//span[not(@class)]')
+```
