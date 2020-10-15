@@ -40,6 +40,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [In-text search en Xpath](#in-text-search-en-xpath)
     - [XPath Axes](#xpath-axes)
     - [Resumen de Xpath](#resumen-de-xpath)
+    - [Aplicando lo aprendido](#aplicando-lo-aprendido)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -417,3 +418,63 @@ $x('/html/body/div/descendant-or-self::div')
 ### Resumen de Xpath
 
 ![resumen_xpath](https://imgur.com/XffXu5F.png)
+
+### Aplicando lo aprendido
+
+En el siguiente enlace, [catálogos de libros](http://books.toscrape.com/), se hará scraping:
+
+- Extracción de los títulos de los libros en venta.
+
+```js
+
+$x('//article[@class="product_pod"]/h3/a/@title').map(x => x.value)
+
+// Salida
+// Array(20) [ "A Light in the Attic", "Tipping the Velvet", "Soumission", "Sharp Objects", "Sapiens: A Brief History of Humankind", "The Requiem Red", "The Dirty Little Secrets of Getting Your Dream Job", "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull", "The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics", "The Black Maria", … ]
+
+```
+
+- Extracción del precio de los libros.
+
+```js
+
+$x('//article[@class="product_pod"]/div[@class="product_price"]/p[@class="price_color"]/text()').map(x => x.wholeText)
+
+// Salida
+// Array(20) [ "£51.77", "£53.74", "£50.10", "£47.82", "£54.23", "£22.65", "£33.34", "£17.93", "£22.60", "£52.15", … ]
+
+```
+
+- Extracción de información de la barra lateral izquierda de categorias.
+
+```js
+
+$x('//div[@class="side_categories"]/ul[@class="nav nav-list"]/li/ul/li/a/text()').map(x => x.wholeText)
+
+// Salida
+// Array(50) [ "\n                            \n                                Travel\n                            \n                        ", "\n                            \n                                Mystery\n                            \n                        ", "\n                            \n                                Historical Fiction\n                            \n                        ", "\n                            \n                                Sequential Art\n                            \n                        ", "\n                            \n                                Classics\n                            \n                        ", "\n                            \n                                Philosophy\n                            \n                        ", "\n                            \n                                Romance\n                            \n                        ", "\n                            \n                                Womens Fiction\n                            \n                        ", "\n                            \n                                Fiction\n                            \n                        ", "\n                            \n                                Childrens\n                            \n                        ", … ]
+```
+
+En el siguiente enlace, [libro del catalogo](http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html), se hará scraping:
+
+- Extracción de la descripción.
+
+```js
+
+$x('//article[@class="product_page"]/p/text()').map(x => x.wholeText)
+
+//Salida
+//Array [ "It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love th It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love that Silverstein. Need proof of his genius? RockabyeRockabye baby, in the treetopDon't you know a treetopIs no safe place to rock?And who put you up there,And your cradle, too?Baby, I think someone down here'sGot it in for you. Shel, you never sounded so good. ...more" ]
+
+```
+
+- Extracción del stock disponible del libro.
+
+```js
+
+$x('//article[@class="product_page"]//p[@class="instock availability"]/text()').map(x => x.wholeText)
+
+// Salida
+// Array [ "\n    ", "\n    \n        In stock (22 available)\n    \n" ]
+
+```
