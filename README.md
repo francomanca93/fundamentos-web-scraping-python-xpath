@@ -39,6 +39,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [Wildcards en Xpath](#wildcards-en-xpath)
     - [In-text search en Xpath](#in-text-search-en-xpath)
     - [XPath Axes](#xpath-axes)
+    - [Resumen de Xpath](#resumen-de-xpath)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -412,3 +413,7 @@ Ejemplo de utilización:
 $x('/html/body/div/self::div')
 $x('/html/body/div/descendant-or-self::div')
 ```
+
+### Resumen de Xpath
+
+![resumen_xpath](https://imgur.com/XffXu5F.png)
