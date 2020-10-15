@@ -38,6 +38,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [Operadores en Xpath](#operadores-en-xpath)
     - [Wildcards en Xpath](#wildcards-en-xpath)
     - [In-text search en Xpath](#in-text-search-en-xpath)
+    - [XPath Axes](#xpath-axes)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -394,3 +395,20 @@ $x('//small[@class="author" and contains(., "g")]/text()').map(x => x.wholeText)
 
 - `end-with(.,"")`: Termina en.
 - `matches(.,"")`: Sirve para hacer una búsqueda en el texto de un nodo que coincida con una expresión regular.
+
+### XPath Axes
+
+Un eje representa una relación entre el nodo actual. Es usado para localizar nodos relativos a el nodo en el DOM tree.
+
+![axes](https://imgur.com/5ltleiq.png)
+
+- `self::div` -> se abrevia con . y se refiere al mismo nodo o div en este caso
+- `child::div` -> Trae los hijos del div
+- `descendant::div` -> Trae todos los nodos que están en niveles inferiores
+- `descendant-or-self::div` -> Trae la unión entre los descendientes y el mismo nodo div.
+
+Ejemplo de utilización:
+```js
+$x('/html/body/div/self::div')
+$x('/html/body/div/descendant-or-self::div')
+```
