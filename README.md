@@ -37,6 +37,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [Predicados en Xpath](#predicados-en-xpath)
     - [Operadores en Xpath](#operadores-en-xpath)
     - [Wildcards en Xpath](#wildcards-en-xpath)
+    - [In-text search en Xpath](#in-text-search-en-xpath)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -362,3 +363,34 @@ Ejemplos:
 - `$x('//span[@class="text" and @itemprop="text"]/node()')`: Trae todos los spam que sean de clase “text” que tengan un atributo @itemprop “text” y de ahí (usando node()) traer todo lo que esté dentro de los spam que cumplen las condiciones.
 
 node() a diferencia de * trae no solamente los nodos, sino también todo el contenido.
+
+### In-text search en Xpath
+
+Para buscar cadenas de caracteres especificas dentro de un texto.
+
+Los ejemplos son sobre la pagina de prueba [topscrape](http://quotes.toscrape.com/).
+
+- `starts-with("ruta_de_busqueda",“Texto a buscar”)`: Empezar con, Si escribimos solo un punto, este hará referencia al nodo actual.
+
+Ejemplo, busca todos los nodos de tipo small (`//small`), que cumplan clase `“author”` y empiecen con `“A”` (el `.` inicial es para buscar en el nodo actual), luego `/text()` para que nos devuelva el texto encontrado y con map lo podamos ver de manera textual.
+
+```js
+$x('//small[@class="author" and starts-with(.,"A")]/text()').map(x => x.wholeText)
+
+//Devuelve (4) ["Albert Einstein", "Albert Einstein", "Albert Einstein", "André Gide"]
+```
+
+- `contains (., “Texto a buscar”)` : Sirve para buscar por un contenido en el texto.
+
+Ejemplo, con contains trae todos los autores que tengan en su nombre “Ro”:
+
+```js
+$x('//small[@class="author" and contains(., "g")]/text()').map(x => x.wholeText)
+
+//Devuelve ["J.K. Rowling"]
+```
+
+> Nota: Debido a las versiones del lenguaje Xpath en los navegadores, 1.0, las funciones end-with y matches no están disponibles, pero una en código con python corren sin problemas.
+
+- `end-with(.,"")`: Termina en.
+- `matches(.,"")`: Sirve para hacer una búsqueda en el texto de un nodo que coincida con una expresión regular.
