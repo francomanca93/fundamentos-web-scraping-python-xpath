@@ -41,6 +41,9 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [XPath Axes](#xpath-axes)
     - [Resumen de Xpath](#resumen-de-xpath)
     - [Aplicando lo aprendido](#aplicando-lo-aprendido)
+  - [Proyecto: scraper de noticias](#proyecto-scraper-de-noticias)
+    - [Un proyecto para tu portafolio: scraper de noticias](#un-proyecto-para-tu-portafolio-scraper-de-noticias)
+      - [Entorno de trabajo](#entorno-de-trabajo)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -478,3 +481,40 @@ $x('//article[@class="product_page"]//p[@class="instock availability"]/text()').
 // Array [ "\n    ", "\n    \n        In stock (22 available)\n    \n" ]
 
 ```
+
+## Proyecto: scraper de noticias
+
+### Un proyecto para tu portafolio: scraper de noticias
+
+Este proyecto es un scraper de noticias del diario [La Republica](https://www.larepublica.co/). Vamos a extraer de este periodico, encabezados y cuerpo de las noticias diariamente y almancenarlos para un posterior análisis. Como análisis de Texto, marketing, análisis de sentimientos y demás.
+
+>Nota: Hay que observar https://www.larepublica.co/robots.txt para tener claro a qué podemos o no acceder con nuestro scraper
+
+#### Entorno de trabajo
+
+Es necesario tener buenas prácticas para desarrollar, en python como todo lenguaje tiene sus propias. A continuación la [configuración inicial]() de este proyecto.
+
+1. Creamos una carpeta para el proyecto. En este caso larepublica_scraper
+
+2. Iniciamos git con `git init`. Si lo ya tenemos iniciado, no lo hacemos.
+
+3. Creamos el entorno virtual es:
+    `$ python3 -m venv venv (Linux)`
+    `$ py -m venv venv (Windows)`
+    El ultimo venv es el nombre del entorno.
+
+4. Creamos el archivo `.gitignore` porque no queremos trackearlo, ya que seria bastante pesado llevarlo al control de versiones. Escribimos en él la carpeta `/venv`
+
+5. Activamos nuestro entorno virtual desde consola con:
+
+    `$ ven\Scripts\activate (Windows)`
+    `$ source venv/bin/activate (Linux)`
+
+6. Si trabajas en VsCode. Creamos un Workspace para tener una estructura más organizada “save as workspace” y así tener un workspace para que VS tenga idea de qué tenemos en esta capeta.
+
+7. Instalamos las dependencias de este proyecto:
+   - Request: Para realizar peticiones
+   - Lxml: Para utilizar Xpath
+   - Autopep8: Ayuda a formatear el código según los estilos oficiales dle lenguaej,e
+
+    `$ pip install requests lxml autopep8`
