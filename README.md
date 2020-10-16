@@ -44,6 +44,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
   - [Proyecto: scraper de noticias](#proyecto-scraper-de-noticias)
     - [Un proyecto para tu portafolio: scraper de noticias](#un-proyecto-para-tu-portafolio-scraper-de-noticias)
       - [Entorno de trabajo](#entorno-de-trabajo)
+    - [Construcción de las expresiones de XPath](#construcción-de-las-expresiones-de-xpath)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -518,3 +519,22 @@ Es necesario tener buenas prácticas para desarrollar, en python como todo lengu
    - Autopep8: Ayuda a formatear el código según los estilos oficiales dle lenguaej,e
 
     `$ pip install requests lxml autopep8`
+
+### Construcción de las expresiones de XPath
+
+En esta sección lo que se hace es contruir las expresiones de XPath. Lo que se hace es navegar a través de la pagina, y buscar los elementos adecuados para armar las mismas. Las empresiones quedan como sigue:
+
+```js
+//Links
+$x('//div/a[contains(@class, "kicker")]/@href').map(x => x.wholeText)
+//Titulo
+$x('//div[@class="mb-auto"]/h2/a/text()').map(x => x.wholeText)
+//Resumen
+$x('//div[@class="lead"]/p/text()').map(x => x.wholeText)
+//Autor
+$x('//div[@class="autorArticle"]/p/text()').map(x => x.wholeText)
+//Cuerpo
+$x('//div[@class="html-content"]/p[not(@class)]/text()').map(x => x.wholeText)
+```
+
+Una vez probadas las expresiones y obteniendo la información que queremos desde la consola del navegador lo único que extraemos de las lineas de código son las expresiones xpath para utilizarlas en la sección siguiente junto con python.
