@@ -45,6 +45,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
     - [Un proyecto para tu portafolio: scraper de noticias](#un-proyecto-para-tu-portafolio-scraper-de-noticias)
       - [Entorno de trabajo](#entorno-de-trabajo)
     - [Construcción de las expresiones de XPath](#construcción-de-las-expresiones-de-xpath)
+    - [Obteniendo los links de los artículos con Python](#obteniendo-los-links-de-los-artículos-con-python)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -538,3 +539,22 @@ $x('//div[@class="html-content"]/p[not(@class)]/text()').map(x => x.wholeText)
 ```
 
 Una vez probadas las expresiones y obteniendo la información que queremos desde la consola del navegador lo único que extraemos de las lineas de código son las expresiones xpath para utilizarlas en la sección siguiente junto con python.
+
+### Obteniendo los links de los artículos con Python
+
+Lo que haremos en esta sección, ya del proyecto del scraper, es obtener todos los links con python.
+
+Definimos dos funciones iniciales:
+
+- `parse_home()`: Función para extraer los link de las noticias.
+- `run()`: Función principal que se va a correr cuando ejecutemos el archivo.
+
+Script para obtener los links: [scraper.py]()
+
+Debemos tener en cuenta lo siguiente a la hora de realizar el código, estos son errores Asociados y comentarios:
+
+1. Primera recomendación es que uses el **print statement** para **debuggear** tus código línea por línea. Es una práctica que resulta muy útil.
+
+2. ¿Tienes una lista vacía?, ¿No te trae los links al ejecutar scraper.py, pero tu expresion Xpath retorna en la consola de Chrome lo que buscas?.
+
+   - **R**: Cambia tu expresión Xpath. Es posible que varias cosas estén ocurriendo y una de las más probables es la expresión Xpath, recuerda que tienes muchas formas de llegar al mismo nodo.
