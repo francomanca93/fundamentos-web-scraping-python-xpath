@@ -550,7 +550,7 @@ Definimos dos funciones iniciales:
 - `parse_home()`: Función para extraer los link de las noticias.
 - `run()`: Función principal que se va a correr cuando ejecutemos el archivo.
 
-Script para obtener los links: [scraper.py]()
+Script para obtener los links: [scraper.py](https://github.com/francomanca93/fundamentos-web-scraping-python-xpath/blob/main/larepublica_scraper/scraper.py)
 
 Debemos tener en cuenta lo siguiente a la hora de realizar el código, estos son errores Asociados y comentarios:
 
@@ -562,7 +562,7 @@ Debemos tener en cuenta lo siguiente a la hora de realizar el código, estos son
 
 ### Guardando las noticias en archivos de texto
 
-Script donde guardamos las noticias en archivos de texto: [scraper.py]()
+Script donde guardamos las noticias en archivos de texto: [scraper.py](https://github.com/francomanca93/fundamentos-web-scraping-python-xpath/blob/main/larepublica_scraper/scraper.py)
 
 Vamos a realizar una lógica para ir de cada link al sitio de cada noticia y de ahí extraer:
 
