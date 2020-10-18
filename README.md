@@ -46,6 +46,7 @@ Con el curso se trata de aprende las bases de la extracción de datos en Interne
       - [Entorno de trabajo](#entorno-de-trabajo)
     - [Construcción de las expresiones de XPath](#construcción-de-las-expresiones-de-xpath)
     - [Obteniendo los links de los artículos con Python](#obteniendo-los-links-de-los-artículos-con-python)
+    - [Guardando las noticias en archivos de texto](#guardando-las-noticias-en-archivos-de-texto)
 
 # Fundamentos de Web Scraping con Python y Xpath
 
@@ -558,3 +559,17 @@ Debemos tener en cuenta lo siguiente a la hora de realizar el código, estos son
 2. ¿Tienes una lista vacía?, ¿No te trae los links al ejecutar scraper.py, pero tu expresion Xpath retorna en la consola de Chrome lo que buscas?.
 
    - **R**: Cambia tu expresión Xpath. Es posible que varias cosas estén ocurriendo y una de las más probables es la expresión Xpath, recuerda que tienes muchas formas de llegar al mismo nodo.
+
+### Guardando las noticias en archivos de texto
+
+Script donde guardamos las noticias en archivos de texto: [scraper.py]()
+
+Vamos a realizar una lógica para ir de cada link al sitio de cada noticia y de ahí extraer:
+
+- Titulo
+- Resumen
+- Cuerpo
+
+Esto lo haremos creando una función aparte llamada:
+
+- `parse_notices(link, today)`: Función para parsear el html. Recibe el link de lugar y la fecha para crear la carpeta.
